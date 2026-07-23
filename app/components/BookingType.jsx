@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     },
     dropdown: {
         width:'50%',
-        height: 48,
+        height: 65,
         borderColor: '#E5E7EB',
         borderWidth: 1,
         borderRadius: 8,
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '600',
         color: '#374151',
-        marginTop: 24
+        marginTop: 24,
+        marginBottom: 8
     },
 
     textContent: {
