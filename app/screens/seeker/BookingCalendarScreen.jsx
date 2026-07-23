@@ -1,15 +1,19 @@
 
 
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { Image } from 'expo-image';
 import WorkSpaceTag from '../../components/WorkSpaceTag';
 import { MapPin, Star } from 'lucide-react-native';
+import CalenderScreen from '../../components/Calender';
+import TimeSlotPicker from '../../components/TimeSlotPicker';
+import BookingType from '../../components/BookingType';
+
 
 const { width } = Dimensions.get('window');
 
 const BookingCalendarScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={require('@/assets/images/SpaceShareImage/Booking-Hero-img.png')}
@@ -44,7 +48,22 @@ const BookingCalendarScreen = () => {
           </View>
         </View>
       </View>
-    </View>
+      <View>
+        <View>
+            <BookingType />
+        </View>
+        <View style={styles.calenderContainer} >
+          <Text style={styles.calenderTitle} >Select Date</Text>
+          <CalenderScreen />
+        </View>
+      </View>
+
+      <View>
+        <TimeSlotPicker />
+      </View>
+
+
+    </ScrollView>
   )
 }
 export default BookingCalendarScreen
@@ -53,7 +72,7 @@ export default BookingCalendarScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
   },
   wrapper: {
     marginHorizontal: 16,
@@ -116,9 +135,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1,          
-    borderBottomColor: '#F3F4F6',   
-    paddingBottom: 12,             
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+    paddingBottom: 12,
     marginTop: 4,
   },
   ratingsContainer: {
@@ -131,21 +150,31 @@ const styles = StyleSheet.create({
   ratingText: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#111827', 
+    color: '#111827',
   },
   reviewCountText: {
     fontWeight: '400',
-    color: '#6B7280', 
+    color: '#6B7280',
   },
   rateText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#111111', 
+    color: '#111111',
   },
   perHourText: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#6B7280', 
+    color: '#6B7280',
+  },
+
+  calenderContainer: {
+    marginTop: 20
+  },
+
+  calenderTitle: {
+    fontSize: 16,
+    marginHorizontal: 16,
+    fontWeight: '600'
   },
 
 });
